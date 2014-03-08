@@ -1,0 +1,34 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+        freeflavor {
+            packageName "com.example.myapplication.free"
+        }
+        proflavor {
+            packageName "com.example.myapplication.pro"
+        }
+    }
+
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.achartengine:achartengine:1.2.0'
+}
